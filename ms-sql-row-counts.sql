@@ -1,0 +1,76 @@
+
+
+-- MS-SQL row counts
+
+-- Validation of row counts 
+SELECT COUNT(*) AS count FROM dbo.AWBuildVersion;   --1
+SELECT COUNT(*) AS count FROM dbo.DatabaseLog;      --927
+SELECT COUNT(*) AS count FROM dbo.ErrorLog;         --0
+SELECT COUNT(*) AS count FROM HumanResources.Department; --16
+SELECT COUNT(*) AS count FROM HumanResources.Employee;  --290
+SELECT COUNT(*) AS count FROM HumanResources.EmployeeDepartmentHistory;  --296
+SELECT COUNT(*) AS count FROM HumanResources.EmployeePayHistory;  --316
+SELECT COUNT(*) AS count FROM HumanResources.JobCandidate;  --13
+SELECT COUNT(*) AS count FROM HumanResources.Shift;  --3
+SELECT COUNT(*) AS count FROM Person.Address;  --19614
+SELECT COUNT(*) AS count FROM Person.AddressType;  --6
+SELECT COUNT(*) AS count FROM Person.BusinessEntity;  --20777
+SELECT COUNT(*) AS count FROM Person.BusinessEntityAddress;  --19614
+SELECT COUNT(*) AS count FROM Person.BusinessEntityContact;   --909
+SELECT COUNT(*) AS count FROM Person.ContactType;  --20
+SELECT COUNT(*) AS count FROM Person.CountryRegion;  --238
+SELECT COUNT(*) AS count FROM Person.EmailAddress;  --19972
+SELECT COUNT(*) AS count FROM Person.Password;  --19972
+SELECT COUNT(*) AS count FROM Person.Person;  -- 19972
+SELECT COUNT(*) AS count FROM Person.PersonPhone;  --19972
+SELECT COUNT(*) AS count FROM Person.PhoneNumberType;  --3
+SELECT COUNT(*) AS count FROM Person.StateProvince;  --181
+SELECT COUNT(*) AS count FROM Production.BillOfMaterials;  --2679
+SELECT COUNT(*) AS count FROM Production.Culture;  --8
+SELECT COUNT(*) AS count FROM Production.Document;  --12
+SELECT COUNT(*) AS count FROM Production.Illustration;  --5
+SELECT COUNT(*) AS count FROM Production.Location;  --14
+SELECT COUNT(*) AS count FROM Production.Product;  --504
+SELECT COUNT(*) AS count FROM Production.ProductCategory;  --4
+SELECT COUNT(*) AS count FROM Production.ProductCostHistory;  --395
+SELECT COUNT(*) AS count FROM Production.ProductDescription;  --762
+SELECT COUNT(*) AS count FROM Production.ProductDocument;  --32
+SELECT COUNT(*) AS count FROM Production.ProductInventory;  --1069
+SELECT COUNT(*) AS count FROM Production.ProductListPriceHistory;  --395
+SELECT COUNT(*) AS count FROM Production.ProductModel;  --128
+SELECT COUNT(*) AS count FROM Production.ProductModelIllustration;  --7
+SELECT COUNT(*) AS count FROM Production.ProductModelProductDescriptionCulture;  --762
+SELECT COUNT(*) AS count FROM Production.ProductPhoto;  --101
+SELECT COUNT(*) AS count FROM Production.ProductProductPhoto;  --504
+SELECT COUNT(*) AS count FROM Production.ProductReview;  --4
+SELECT COUNT(*) AS count FROM Production.ProductSubcategory;  --37
+SELECT COUNT(*) AS count FROM Production.ScrapReason;  --16
+SELECT COUNT(*) AS count FROM Production.TransactionHistory;  --113443
+SELECT COUNT(*) AS count FROM Production.TransactionHistoryArchive;  --89253
+SELECT COUNT(*) AS count FROM Production.UnitMeasure;  --38
+SELECT COUNT(*) AS count FROM Production.WorkOrder;  --72591
+SELECT COUNT(*) AS count FROM Production.WorkOrderRouting;  --67131
+SELECT COUNT(*) AS count FROM Purchasing.ProductVendor;  --460
+SELECT COUNT(*) AS count FROM Purchasing.PurchaseOrderDetail;  --8845
+SELECT COUNT(*) AS count FROM Purchasing.PurchaseOrderHeader;  --4012
+SELECT COUNT(*) AS count FROM Purchasing.ShipMethod;  --5
+SELECT COUNT(*) AS count FROM Purchasing.Vendor;  --104
+SELECT COUNT(*) AS count FROM Sales.CountryRegionCurrency;  --109
+SELECT COUNT(*) AS count FROM Sales.CreditCard;  --19118
+SELECT COUNT(*) AS count FROM Sales.Currency;  --105
+SELECT COUNT(*) AS count FROM Sales.CurrencyRate;  --13532
+SELECT COUNT(*) AS count FROM Sales.Customer;  --19820
+SELECT COUNT(*) AS count FROM Sales.PersonCreditCard;  --19118
+SELECT COUNT(*) AS count FROM Sales.SalesTerritoryHistory;  --17
+SELECT COUNT(*) AS count FROM Sales.SalesOrderDetail;  --121317
+SELECT COUNT(*) AS count FROM Sales.SalesOrderHeader;  --31465
+SELECT COUNT(*) AS count FROM Sales.SalesOrderHeaderSalesReason;  --27647
+SELECT COUNT(*) AS count FROM Sales.SalesPerson;  --17
+SELECT COUNT(*) AS count FROM Sales.SalesPersonQuotaHistory;   --163
+SELECT COUNT(*) AS count FROM Sales.SalesReason;  --10
+SELECT COUNT(*) AS count FROM Sales.SalesTaxRate;   --29
+SELECT COUNT(*) AS count FROM Sales.SalesTerritory;   --10
+SELECT COUNT(*) AS count FROM Sales.ShoppingCartItem;   --3
+SELECT COUNT(*) AS count FROM Sales.SpecialOffer;    --16
+SELECT COUNT(*) AS count FROM Sales.SpecialOfferProduct;   --538
+SELECT COUNT(*) AS count FROM Sales.Store;    --701
