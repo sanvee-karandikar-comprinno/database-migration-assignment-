@@ -1,5 +1,5 @@
 # Task 1 - Schema and data migration 
-Objective :
+### Objective :
 The objective of this task was to migrate the complete Microsoft SQL Server (MSSQL) database schema and data to PostgreSQL and MySQL while preserving:
 1. Table structures
 2. Constraints
@@ -10,16 +10,16 @@ The objective of this task was to migrate the complete Microsoft SQL Server (MSS
 7. Referential integrity
 The migration process ensured that the target databases behaved functionally equivalent to the original MSSQL source database.
 
---Migration Overview
+### Migration Overview
 The migration process was divided into two major phases:
 1.Schema Migration
 2.Data Migration
 
 Both PostgreSQL and MySQL target platforms required syntax adaptation and datatype compatibility handling because MSSQL-specific features are not directly supported in open-source databases.
 
---Schema Migration
---PostgreSQL Migration
---Approach
+### Schema Migration
+#### PostgreSQL Migration
+##### Approach
 The MSSQL schema was converted into PostgreSQL-compatible DDL scripts by modifying:
 
 1.MSSQL-specific datatypes
@@ -29,7 +29,7 @@ The MSSQL schema was converted into PostgreSQL-compatible DDL scripts by modifyi
 5.XML-related functionality
 6.Major Datatype Conversions
 
--- Key PostgreSQL Adjustments
+##### Key PostgreSQL Adjustments
 1. Replaced GETDATE() with NOW()
 2. Replaced NEWID() with gen_random_uuid()
 3. Replaced clustered indexes with PostgreSQL B-tree indexes
@@ -37,11 +37,11 @@ The MSSQL schema was converted into PostgreSQL-compatible DDL scripts by modifyi
 5. Converted XML logic where supported
 
 
--- MySQL Migration Approach
+#### MySQL Migration Approach
 
 The MSSQL schema was adapted to MySQL-compatible syntax while preserving structural integrity.
 
-**Major Datatype Conversions**
+##### Major Datatype Conversions
 1. UNIQUEIDENTIFIER	 -> CHAR(50)
 2. BIT ->	TINYINT(1)
 3. IMAGE ->	LONGBLOB
@@ -49,15 +49,15 @@ The MSSQL schema was adapted to MySQL-compatible syntax while preserving structu
 5. XML -> LONGTEXT
 
 
--- Key MySQL Adjustments
+##### Key MySQL Adjustments
 1. Used AUTO_INCREMENT for identity columns
 2. Replaced unsupported XML functionality
 3. Configured UTF8MB4 character encoding
 4. Adapted index syntax for MySQL compatibility
 
 
--- Data Migration
--- Migration Process
+### Data Migration
+#### Migration Process
 
 The data migration process included:
 
@@ -68,7 +68,7 @@ The data migration process included:
 5. Verifying row counts after migration
 
 
--- Referential Integrity Handling
+#### Referential Integrity Handling
 
 To maintain referential integrity:
 
@@ -79,7 +79,7 @@ To maintain referential integrity:
 Migration order followed dependency hierarchy to avoid constraint violations.
 
 
--- Challenges Faced & Resolutions
+### Challenges Faced & Resolutions
 
 1. MSSQL XML functions unsupported in PostgreSQL/MySQL
    Resolution : Replaced XML parsing logic using platform-compatible alternatives
