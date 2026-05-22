@@ -1,6 +1,6 @@
 # Task 2 - Stored Procedure, View & Function Conversion
 
-Objective : 
+### Objective : 
 The objective of this task was to convert Microsoft SQL Server (MSSQL) stored procedures, views, and functions into PostgreSQL PL/pgSQL and MySQL-compatible procedural syntax while preserving:
 1. Business logic
 2. Query behavior
@@ -11,7 +11,7 @@ The objective of this task was to convert Microsoft SQL Server (MSSQL) stored pr
 
 The migration process focused on adapting MSSQL-specific features into equivalent PostgreSQL and MySQL implementations using platform-native syntax and optimization techniques.
 
--- Components Converted
+### Components Converted
 The following database objects were analyzed and migrated:
 1. Stored Procedures	-> Business logic and transactional operations
 2. Views	-> Virtual query-based tables
@@ -19,11 +19,11 @@ The following database objects were analyzed and migrated:
 4. Table-Valued Functions	-> Functions returning result sets
 5. XML-Based Views/Functions ->	MSSQL XML parsing logic
 
--- Stored Procedure Conversion
--- PostgreSQL Conversion
+### Stored Procedure Conversion
+#### PostgreSQL Conversion
 Stored procedures written in T-SQL were rewritten using PL/pgSQL syntax.
 
--- Major Syntax Changes
+##### Major Syntax Changes
 1. GETDATE() -> 	NOW()
 2. ISNULL()	-> COALESCE()
 3. PRINT	-> RAISE NOTICE
@@ -33,18 +33,18 @@ Stored procedures written in T-SQL were rewritten using PL/pgSQL syntax.
 7. TRY...CATCH	-> EXCEPTION WHEN OTHERS
 8. CONVERT()	-> CAST()/TO_CHAR()
 
--- MySQL Conversion
+#### MySQL Conversion
 Procedures were adapted to MySQL procedural syntax using:
 1. DELIMITER handling
 2. BEGIN...END blocks
 3. IF/ELSE logic
 4. DECLARE statements
 
--- Function Conversion
+### Function Conversion
 Objective :
 MSSQL scalar and table-valued functions were converted into PostgreSQL and MySQL functions while preserving functionality and return behavior.
 
--- View Conversion
+### View Conversion
 Objective :
 Views were migrated to PostgreSQL and MySQL while preserving:
 1. Query logic
@@ -53,7 +53,7 @@ Views were migrated to PostgreSQL and MySQL while preserving:
 4. Filtering
 5. XML transformations where applicable
 
-**XML View & Function Handling**
+### XML View & Function Handling
 Challenge - MSSQL XML methods such as:
             1).value()
             2).nodes()
@@ -61,15 +61,15 @@ Challenge - MSSQL XML methods such as:
 
 The above methods are not fully supported in MySQL and differ significantly in PostgreSQL.
 
--- Resolution :
--- PostgreSQL
+#### Resolution :
+##### PostgreSQL
        1.Used XML/XPath-compatible functions where possible
        2. Converted some XML logic into TEXT processing
--- MySQL
+##### MySQL
        1. Stored XML data as LONGTEXT
        2. Rewrote XML extraction logic manually
 
--- Challenges Faced & Resolutions
+### Challenges Faced & Resolutions
 
 1. T-SQL syntax incompatible with PostgreSQL/MySQL
    Resolution : Rewrote logic using native syntax
