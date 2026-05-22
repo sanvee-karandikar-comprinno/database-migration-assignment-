@@ -1,6 +1,6 @@
 # Task 3 — Data Type Mapping & Compatibility
 
-Objective : 
+### Objective : 
 The objective of this task was to analyze and map Microsoft SQL Server (MSSQL) data types to their most appropriate PostgreSQL and MySQL equivalents while preserving:
 1.Data integrity
 2.Precision
@@ -10,7 +10,7 @@ The objective of this task was to analyze and map Microsoft SQL Server (MSSQL) d
 
 The migration process requires careful evaluation because several MSSQL datatypes do not have direct equivalents in PostgreSQL and MySQL. Platform-specific handling was necessary to avoid data corruption, precision loss, and encoding inconsistencies.
 
--- Approach
+### Approach
 The datatype mapping process involved:
 
 1. Identifying all MSSQL datatypes used in the source schema
@@ -29,7 +29,7 @@ Special attention was given to:
 
 The detailed datatype mapping table has been included separately in the repository as a PDF document.
 
--- Key Migration Considerations
+### Key Migration Considerations
 1. Financial Data Handling
         -Financial columns were migrated using exact precision numeric datatypes instead of floating-point types.
         -Using FLOAT for monetary values can introduce rounding inconsistencies due to approximate storage behavior.
@@ -95,6 +95,7 @@ Resolution: Explicit UTF8 collation was configured in MySQL to preserve Unicode 
 Binary columns required integrity verification after migration.
 Validated: Binary lengths, Sample file integrity, Export/import consistency
 
+### Validation 
 The datatype migration process was validated using:
       a. Row count comparisons
       b. Aggregate validation
