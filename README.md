@@ -31,17 +31,25 @@ The detailed datatype mapping table has been included separately in the reposito
 
 ### Key Migration Considerations
 1. Financial Data Handling
+   
         -Financial columns were migrated using exact precision numeric datatypes instead of floating-point types.
+   
         -Using FLOAT for monetary values can introduce rounding inconsistencies due to approximate storage behavior.
+   
     To avoid this issue:
+   
         -PostgreSQL used NUMERIC
+   
         -MySQL used DECIMAL
+   
 This ensured financial calculations remained accurate after migration.
 
-2. Datetime Precision Handling
+3. Datetime Precision Handling
 MSSQL supports higher timestamp precision using DATETIME2, which behaves differently across PostgreSQL and MySQL.
 To preserve timestamp accuracy:
+
     -PostgreSQL used TIMESTAMP
+   
     -MySQL used DATETIME(6)
 
 Additional validation was performed on migrated date ranges and timestamp precision.
@@ -59,7 +67,9 @@ UUID generation functions were also adapted using platform-native implementation
 4. Unicode & Encoding Compatibility
 MSSQL Unicode datatypes required careful handling during migration to preserve multilingual text data.
 To ensure compatibility:
+
     -PostgreSQL UTF-8 support was utilized
+   
     -MySQL UTF8MB4 character encoding was explicitly configured
 
 This preserved special characters, multilingual content, and extended Unicode symbols.
@@ -67,8 +77,11 @@ This preserved special characters, multilingual content, and extended Unicode sy
 5. Binary Data Migration
 Binary datatypes such as IMAGE and VARBINARY required special handling during export and import operations.
 The migration process ensured:
+
     -Binary data integrity
+   
     -Correct storage conversion
+   
     -No corruption during transfer
 
 Validation checks were performed using binary length comparisons and sample file verification.
@@ -76,26 +89,37 @@ Validation checks were performed using binary length comparisons and sample file
 6. XML Compatibility Challenges
 MSSQL provides native XML datatype support and XML query methods that differ significantly from PostgreSQL and MySQL.
 Because MySQL lacks equivalent XML functionality:
+
       -XML data was stored using text-based datatypes where necessary
+   
       -XML parsing logic was rewritten using platform-compatible alternatives
+   
       -Edge Cases Identified
    
-7. Precision Loss
+8. Precision Loss
 Financial columns required exact precision handling to prevent rounding inconsistencies.
 Resolution Used:
+
      -PostgreSQL → NUMERIC
+   
      -MySQL → DECIMAL
+   
 instead of FLOAT datatypes.
 
-8. Date Range & Timestamp Precision Issues
+10. Date Range & Timestamp Precision Issues
+    
 Differences in datetime precision across platforms caused potential timestamp inconsistencies.
+
 Resolution: Validated Minimum and maximum dates, Fractional timestamp precision, Datetime compatibility after migration, Collation & Encoding Differences.
 
-9. Character encoding behavior differed between MSSQL and MySQL.
+12. Character encoding behavior differed between MSSQL and MySQL.
+    
 Resolution: Explicit UTF8 collation was configured in MySQL to preserve Unicode compatibility.
 
-10. Binary Data Validation
+14. Binary Data Validation
+    
 Binary columns required integrity verification after migration.
+
 Validated: Binary lengths, Sample file integrity, Export/import consistency
 
 ### Validation 
