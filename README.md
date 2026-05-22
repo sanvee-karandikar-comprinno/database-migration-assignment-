@@ -18,8 +18,13 @@ Objective :
 The objective of this project was to perform a complete cross-platform database modernization by migrating an enterprise-style Microsoft SQL Server (MSSQL) database to PostgreSQL and MySQL. The migration process focused on preserving schema structure, data integrity, constraints, indexes, relationships, and business logic while ensuring compatibility across target database platforms.
 
 Task Summary
+
 Task 1	-> Schema & Data Migration
+
 Task 2	-> Stored Procedure, View & Function Conversion
+
 Task 3	-> Data Type Mapping & Compatibility
+
 Task 4	-> Performance Optimization
+
 Task 5	-> Data Validation & Reconciliation
