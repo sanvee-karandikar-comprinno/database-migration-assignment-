@@ -86,31 +86,20 @@ instead of FLOAT datatypes.
 
 8. Date Range & Timestamp Precision Issues
 Differences in datetime precision across platforms caused potential timestamp inconsistencies.
-Resolution:
-      -Validated Minimum and maximum dates
-      -Fractional timestamp precision
-      -Datetime compatibility after migration
-      -Collation & Encoding Differences
+Resolution: Validated Minimum and maximum dates, Fractional timestamp precision, Datetime compatibility after migration, Collation & Encoding Differences.
 
 9. Character encoding behavior differed between MSSQL and MySQL.
-Resolution:
-       -Explicit UTF8 collation was configured in MySQL to preserve Unicode compatibility.
+Resolution: Explicit UTF8 collation was configured in MySQL to preserve Unicode compatibility.
 
 10. Binary Data Validation
 Binary columns required integrity verification after migration.
-Validated:
-     -Binary lengths
-     -Sample file integrity
-     -Export/import consistency
+Validated: Binary lengths, Sample file integrity, Export/import consistency
 
 The datatype migration process was validated using:
-     -Row count comparisons
-     -Aggregate validation
-     -NULL validation
-     -Random record auditing
-     -Datetime range verification
+      a. Row count comparisons
+      b. Aggregate validation
+      c. NULL validation
+      d. Random record auditing
+      e. Datetime range verification
      
 
-UUID uniqueness checks
-
-All validation checks passed successfully across PostgreSQL and MySQL environments.
