@@ -47,8 +47,11 @@ To preserve timestamp accuracy:
 Additional validation was performed on migrated date ranges and timestamp precision.
 
 3. UUID Handling
+   
        -MSSQL UNIQUEIDENTIFIER values required platform-specific handling.
+   
        -PostgreSQL supports native UUID storage and indexing
+   
        -MySQL stores UUID values as character strings
 
 UUID generation functions were also adapted using platform-native implementations.
