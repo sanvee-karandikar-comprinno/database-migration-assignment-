@@ -1,30 +1,102 @@
-# Database Modernization Assignment
-Cross-Platform Database Migration & Optimization
+# Task 6 - Automation
+### Project Overview
 
-This repository contains the complete implementation of a cross-platform database modernization project involving migration from Microsoft SQL Server (MSSQL) to PostgreSQL and MySQL.
+This project implements an automated cross-database migration pipeline that migrates data from MySQL to PostgreSQL using Python-based ETL scripts.
 
-The project demonstrates enterprise-level database migration techniques including:
-1. Schema migration
-2. Data migration
-3. Stored procedure conversion
-4. View and function conversion
-5. Data type compatibility analysis
-6. Query performance optimization
-7. Data validation and reconciliation
+It handles:
 
-The assignment simulates real-world database modernization scenarios commonly encountered during migration from proprietary database systems to open-source platforms.
+1.Schema conversion
 
-Objective : 
-The objective of this project was to perform a complete cross-platform database modernization by migrating an enterprise-style Microsoft SQL Server (MSSQL) database to PostgreSQL and MySQL. The migration process focused on preserving schema structure, data integrity, constraints, indexes, relationships, and business logic while ensuring compatibility across target database platforms.
+2.Data cleaning and transformation
 
-Task Summary
+3.Bulk data loading
 
-Task 1	-> Schema & Data Migration
+4.Retry mechanism for failed tables
 
-Task 2	-> Stored Procedure, View & Function Conversion
+5.Handling data type mismatches and constraints
 
-Task 3	-> Data Type Mapping & Compatibility
 
-Task 4	-> Performance Optimization
+The system is built for AdventureWorks-style relational datasets with multiple schemas like dbo, person, production, sales, etc.
 
-Task 5	-> Data Validation & Reconciliation
+### Objectives
+1.Automate migration from MySQL → PostgreSQL
+
+2.Preserve relational integrity across schemas
+
+3.Handle data type mismatches (TEXT, NUMERIC, BYTEA, UUID, etc.)
+
+4.Fix schema-level conflicts (reserved keywords, naming issues)
+
+5.Retry failed table loads automatically
+
+6.Ensure zero manual intervention after setup
+
+
+#### Tech Stack used
+1.Python 3.x
+
+2.MySQL
+
+3.PostgreSQL
+
+4.Pandas
+
+5.NumPy
+
+6.Psycopg2
+
+
+#### ETL Workflow
+1. Extract
+   
+   -> Data exported from MySQL tables
+
+   -> Stored as CSV files in exported_data/
+
+2. Transform
+     -> Column normalization
+
+     -> Null handling
+
+     -> Data type corrections:
+
+     -> BYTEA → Base64 encoded binary
+
+     -> NaN → NULL
+
+     -> Reserved keywords renamed
+
+3. Load
+   
+   -> Bulk insert into PostgreSQL
+
+   -> Schema-based insertion per table
+
+   -> Schema-separated design (dbo, person, sales, etc.)
+
+4. Retry Engine
+Automatically retries failed tables
+
+Fixes:
+
+1.duplicate keys
+
+2.missing constraints
+
+3.type mismatches
+
+4.Uses ON CONFLICT DO NOTHING
+
+#### Key Challenges Solved
+
+1.Reserved keyword conflicts (group, primary)
+
+2.BYTEA binary conversion issues
+
+3.Duplicate primary key handling
+
+4.Missing NOT NULL values
+
+5.Schema mismatch between MySQL and PostgreSQL
+
+6.Large dataset bulk insertion optimization
