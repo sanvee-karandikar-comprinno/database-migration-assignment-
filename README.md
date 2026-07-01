@@ -133,4 +133,3 @@ This project demonstrates a complete **end-to-end database modernization pipelin
 - Performance optimization  
 - Automation and failure recovery  
 
-It reflects real-world skills required in **data engineering, backend systems, and enterprise database modernization projects**.
